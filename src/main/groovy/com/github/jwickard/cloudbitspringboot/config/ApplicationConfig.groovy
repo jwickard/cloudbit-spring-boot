@@ -1,7 +1,7 @@
 package com.github.jwickard.cloudbitspringboot.config
-
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.context.annotation.Import
 
 /**
  * <p>ApplicationConfig</p>
@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
  * @author Joel Wickard (Object Partners Inc.)
  */
 @EnableAutoConfiguration
+@Import(RabbitConfig.class)
 class ApplicationConfig {
     public static final void main(String[] args) {
         SpringApplication.run(ApplicationConfig.class, args)
