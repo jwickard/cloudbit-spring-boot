@@ -1,0 +1,1 @@
+web: ./build/install/cloudbit-springboot/bin/cloudbit-springboot
