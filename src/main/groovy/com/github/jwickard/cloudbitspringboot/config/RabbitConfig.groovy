@@ -1,10 +1,7 @@
 package com.github.jwickard.cloudbitspringboot.config
 import com.github.jwickard.cloudbitspringboot.messaging.ProfileReceiver
 import com.github.jwickard.cloudbitspringboot.messaging.ProfileReceiverImpl
-import org.springframework.amqp.core.Binding
-import org.springframework.amqp.core.BindingBuilder
 import org.springframework.amqp.core.Queue
-import org.springframework.amqp.core.TopicExchange
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory
 import org.springframework.amqp.rabbit.connection.ConnectionFactory
 import org.springframework.amqp.rabbit.core.RabbitTemplate
@@ -33,17 +30,7 @@ class RabbitConfig {
 
     @Bean
     Queue queue(){
-        return new Queue(queueName, false)
-    }
-
-    @Bean
-    TopicExchange exchange(){
-        return new TopicExchange('fit-bit-profile-synch-exchange')
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange topicExchange){
-        return BindingBuilder.bind(queue).to(topicExchange).with(queueName)
+        return new Queue(queueName, true)
     }
 
     @Bean
