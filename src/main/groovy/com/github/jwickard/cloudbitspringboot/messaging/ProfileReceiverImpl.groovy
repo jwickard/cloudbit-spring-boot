@@ -18,7 +18,6 @@ class ProfileReceiverImpl implements ProfileReceiver {
 
     @Override
     void receiveMessage(String msg) {
-        println(msg)
 
         Profile incoming = messageConverter.fromMessage(msg)
 
